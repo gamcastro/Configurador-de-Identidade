@@ -11,20 +11,19 @@
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen" 
         ResizeMode="NoResize"
-        Height="444" Width="450">
+        Height="400" Width="450">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="34"/>
     </WindowChrome.WindowChrome>
-    <Grid Background="Black">
+    <Grid Background="Transparent">
         <Grid.RowDefinitions> 
                 <RowDefinition Height="Auto"/>
-                <RowDefinition/>
-                 <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="150"/>
+                 <RowDefinition Height="*"/>               
         </Grid.RowDefinitions>
         
         <!-- Barra de Títulos da janela personalizada -->
-            <Grid Grid.Row="0" Background="#FF6071BB">
+            <Grid Grid.Row="0" Background="#FF6071BB" Opacity="0.6">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Image Source="/Recursos/ConfigureComputer_16x.png" 
                            Width="18"
@@ -44,7 +43,7 @@
                 </StackPanel>
             </Grid>
             <!-- Fim da Barra de Títulos da janela personalizada -->
-            <Canvas Grid.Row="1">
+            <Canvas Grid.Row="1" Background="Black">
             <Image Source="{StaticResource Brasao}"
                Width="87" Canvas.Left="19" Canvas.Top="4" Panel.ZIndex="1" Height="82.682"/>
             <Rectangle Width="450" Height="53" 
@@ -68,8 +67,11 @@
                        Canvas.Left="377.066" 
                        Canvas.Top="37.63"/>
         </Canvas>
-        <TextBlock 
+        <StackPanel 
+            
             Grid.Row="2" 
+            Background="Black">
+            <TextBlock           
             Foreground="White" 
             HorizontalAlignment="Center" 
             VerticalAlignment="Center"
@@ -80,11 +82,11 @@
             TextAlignment="Center"
             >
             Agora você irá configurar  a identidade do seu computador.
-        </TextBlock>
-        <Grid Grid.Row="3">
-            <Grid.Resources>
-                <ControlTemplate x:Key="ButtonTemplate" TargetType="{x:Type Button}">
-                    <Border 
+            </TextBlock>
+            <Grid Margin="0,110,0,0" >
+                <Grid.Resources>
+                    <ControlTemplate x:Key="ButtonTemplate" TargetType="{x:Type Button}">
+                        <Border 
                         Name="Border"
                         BorderThickness="0"
                         Width="100"
@@ -93,36 +95,39 @@
                         TextBlock.Foreground="White"
                         TextBlock.FontFamily="Calibri"
                         TextBlock.FontSize="16">
-                        <ContentPresenter 
+                            <ContentPresenter 
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Content="{TemplateBinding Content}"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Border"
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border"
                                     Property="BorderThickness"
                                     Value="1"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Grid.Resources>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Grid.Resources>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-            <Button 
+                <Button 
                  Template="{StaticResource ButtonTemplate}"
                 >
-                Prosseguir
-            </Button>
-            <Button 
+                    Prosseguir
+                </Button>
+                <Button 
                 Grid.Column="1"
                 
                 Template="{StaticResource ButtonTemplate}">
-                Cancelar
-            </Button>
-        </Grid>
+                    Cancelar
+                </Button>
+            </Grid>
+        </StackPanel>
+       
+       
 
     </Grid>
     
