@@ -67,6 +67,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Recursos\Geral.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Recursos\ImagensVetoriais.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

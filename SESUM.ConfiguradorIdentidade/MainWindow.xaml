@@ -5,31 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SESUM.ConfiguradorIdentidade"
         mc:Ignorable="d"
-<<<<<<< HEAD
-        Title="ATENÇÃO" 
-        SizeToContent="WidthAndHeight"  
-        Background="Black"
-        MinHeight="400" 
-        MinWidth="460"
-        WindowStartupLocation="CenterScreen"      
-        
-        >
-=======
-        Title="Atenção"  Background="Black" 
-        WindowStyle="ToolWindow" SizeToContent="WidthAndHeight"
-        MinHeight="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-
->>>>>>> parent of b900eb9 (Alterado layout para melhor semelhança a tela original do Configurdor.)
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+        Title="Atenção"     
+        WindowStartupLocation="CenterScreen" 
+        ResizeMode="NoResize"
+        Height="444" Width="450">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="34"/>
+    </WindowChrome.WindowChrome>
+    <Grid Background="Black">
+        <Grid.RowDefinitions> 
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                 <RowDefinition/>
+                <RowDefinition/>
         </Grid.RowDefinitions>
-        <Canvas>
+        
+        <!-- Barra de Títulos da janela personalizada -->
+            <Grid Grid.Row="0" Background="#F999">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Image Source="/Recursos/ConfigureComputer_16x.png" 
+                           Width="18"
+                           HorizontalAlignment="Left"
+                           Margin="2"/>
+                    <TextBlock 
+                        Text="ATENÇAO"
+                        FontFamily="Arial"
+                        Margin="4 3 0 0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button
+                        Style="{StaticResource CloseButtonStyle}"
+                         WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Close"
+                        />
+
+                </StackPanel>
+            </Grid>
+            <!-- Fim da Barra de Títulos da janela personalizada -->
+            <Canvas Grid.Row="1">
             <Image Source="{StaticResource Brasao}"
                Width="87" Canvas.Left="19" Canvas.Top="4" Panel.ZIndex="1" Height="82.682"/>
-            <Rectangle Width="461" Height="53" 
+            <Rectangle Width="450" Height="53" 
                        Canvas.Left="0">
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -41,38 +56,40 @@
             <TextBlock Text="Configurador de Identidade"
                        Foreground="White"
                        Canvas.Left="95"
-                       Canvas.Top="4" FontFamily="Verdana"
-                       FontSize="16"/>
+                       Canvas.Top="4" FontFamily="Calibri"
+                       FontSize="20"/>
             <TextBlock Text="Justiça Eleitoral"
                        Foreground="White"
                        FontSize="10"
-                       FontFamily="Verdana" 
-                       Canvas.Left="365.066" 
+                       FontFamily="Calibri" 
+                       Canvas.Left="377.066" 
                        Canvas.Top="37.63"/>
         </Canvas>
         <TextBlock 
-            Grid.Row="1" 
-            Foreground="#FFFFF3F3" 
+            Grid.Row="2" 
+            Foreground="White" 
             HorizontalAlignment="Center" 
             VerticalAlignment="Center"
-            FontSize="16"
-            FontFamily="Verdana"
-            TextWrapping="Wrap" 
-            Margin="84.317,18.053,71.317,18.053" 
-            Width="299.366"  
+            FontSize="20"
+            FontFamily="Calibri"
+            TextWrapping="Wrap"           
+            Width="260"
             TextAlignment="Center"
             >
-            Agora você irá configurar  a identidade do computador.
+            Agora você irá configurar  a identidade do seu computador.
         </TextBlock>
-        <StackPanel Grid.Row="2" Orientation="Horizontal"
-                    HorizontalAlignment="Center">
-            <StackPanel.Resources>
+        <Grid Grid.Row="3">
+            <Grid.Resources>
                 <ControlTemplate x:Key="ButtonTemplate" TargetType="{x:Type Button}">
                     <Border 
                         Name="Border"
                         BorderThickness="0"
+                        Width="100"
+                        Height="50"
                         BorderBrush="White"
-                        TextBlock.Foreground="White">
+                        TextBlock.Foreground="White"
+                        TextBlock.FontFamily="Calibri"
+                        TextBlock.FontSize="16">
                         <ContentPresenter 
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
@@ -86,22 +103,24 @@
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
-            </StackPanel.Resources>
-
+            </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
             <Button 
-                Width="70"
-                Height="30" Margin="40,0,60,0"
-                Template="{StaticResource ButtonTemplate}"
+                 Template="{StaticResource ButtonTemplate}"
                 >
                 Prosseguir
             </Button>
             <Button 
-                Width="70"
-                Height="30" Margin="0,0,60,0" 
+                Grid.Column="1"
+                
                 Template="{StaticResource ButtonTemplate}">
                 Cancelar
             </Button>
-        </StackPanel>
+        </Grid>
 
     </Grid>
+    
 </Window>
