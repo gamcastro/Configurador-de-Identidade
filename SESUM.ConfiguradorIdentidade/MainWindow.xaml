@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SESUM.ConfiguradorIdentidade"
         mc:Ignorable="d"
-        Title="Atenção"     
+        Title="Atenção"
+         Background="Transparent"
+        WindowStyle="None"
+        AllowsTransparency="True"
         WindowStartupLocation="CenterScreen" 
         ResizeMode="NoResize"
         Height="444" Width="450">
@@ -21,7 +24,7 @@
         </Grid.RowDefinitions>
         
         <!-- Barra de Títulos da janela personalizada -->
-            <Grid Grid.Row="0" Background="#F999">
+            <Grid Grid.Row="0" Background="#FF6071BB">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Image Source="/Recursos/ConfigureComputer_16x.png" 
                            Width="18"
@@ -30,7 +33,7 @@
                     <TextBlock 
                         Text="ATENÇAO"
                         FontFamily="Arial"
-                        Margin="4 3 0 0"/>
+                        Margin="4,7,0,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button
