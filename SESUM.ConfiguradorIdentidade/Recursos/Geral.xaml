@@ -14,7 +14,7 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="LayoutRoot" Property="Background" Value="#E5E5E5"/>
+                            <Setter TargetName="LayoutRoot" Property="Background" Value="Red"/>
                             <Setter TargetName="txt" Property="Foreground" Value="#000000"/>
                         </Trigger>
                     </ControlTemplate.Triggers>

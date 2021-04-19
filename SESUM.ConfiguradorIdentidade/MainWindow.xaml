@@ -13,7 +13,7 @@
         ResizeMode="NoResize"
         Height="400" Width="450">
     <WindowChrome.WindowChrome>
-        <WindowChrome CaptionHeight="34"/>
+        <WindowChrome/>
     </WindowChrome.WindowChrome>
     <Grid Background="Transparent">
         <Grid.RowDefinitions> 
@@ -23,14 +23,14 @@
         </Grid.RowDefinitions>
         
         <!-- Barra de Títulos da janela personalizada -->
-            <Grid Grid.Row="0" Background="#FF6071BB" Opacity="0.6">
+            <Grid Grid.Row="0" Background="#FF192750" Opacity="0.9">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Image Source="/Recursos/ConfigureComputer_16x.png" 
                            Width="18"
                            HorizontalAlignment="Left"
                            Margin="2"/>
                     <TextBlock 
-                        Text="ATENÇAO"
+                        Text="ATENÇÃO"
                         FontFamily="Arial"
                         Margin="4,7,0,0"/>
                 </StackPanel>
@@ -43,6 +43,8 @@
                 </StackPanel>
             </Grid>
             <!-- Fim da Barra de Títulos da janela personalizada -->
+        
+         <!-- Cabeçalho -->
             <Canvas Grid.Row="1" Background="Black">
             <Image Source="{StaticResource Brasao}"
                Width="87" Canvas.Left="19" Canvas.Top="4" Panel.ZIndex="1" Height="82.682"/>
@@ -62,11 +64,14 @@
                        FontSize="20"/>
             <TextBlock Text="Justiça Eleitoral"
                        Foreground="White"
+                       Opacity="0.5"
                        FontSize="10"
                        FontFamily="Calibri" 
                        Canvas.Left="377.066" 
                        Canvas.Top="37.63"/>
         </Canvas>
+        <!-- Fim Cabeçalho -->
+        
         <StackPanel 
             
             Grid.Row="2" 
@@ -85,45 +90,43 @@
             </TextBlock>
             <Grid Margin="0,110,0,0" >
                 <Grid.Resources>
-                    <ControlTemplate x:Key="ButtonTemplate" TargetType="{x:Type Button}">
-                        <Border 
-                        Name="Border"
-                        BorderThickness="0"
-                        Width="100"
-                        Height="50"
-                        BorderBrush="White"
-                        TextBlock.Foreground="White"
-                        TextBlock.FontFamily="Calibri"
-                        TextBlock.FontSize="16">
-                            <ContentPresenter 
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Content="{TemplateBinding Content}"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Border"
-                                    Property="BorderThickness"
-                                    Value="1"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border 
+                                        Name="Border"
+                                        BorderThickness="0"
+                                        Width="100"
+                                        Height="50"
+                                        BorderBrush="White"
+                                        TextBlock.Foreground="White"
+                                        TextBlock.FontFamily="Calibri"
+                                        TextBlock.FontSize="16">
+                                        <ContentPresenter 
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Content="{TemplateBinding Content}"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Border"
+                                                    Property="BorderThickness"
+                                                    Value="1"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+         
                 </Grid.Resources>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button 
-                 Template="{StaticResource ButtonTemplate}"
-                >
-                    Prosseguir
-                </Button>
-                <Button 
-                Grid.Column="1"
-                
-                Template="{StaticResource ButtonTemplate}">
-                    Cancelar
-                </Button>
+                <Button>Prosseguir</Button>               
+                <Button Grid.Column="1">Cancelar</Button>
             </Grid>
         </StackPanel>
        
